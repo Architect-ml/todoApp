@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <div class="wrapper ">
+    <header class="header">
+      <div class="filters"></div>
+    </header>
+    <main class="main show-box">
+      <div class="container">
+        <form action="" class="form" name="addTask">
+          <div class="add-task">
+            <div class="add-task__group">
+              <label class="form-label add-task__label" for="task-text">To Do List</label>
+              <textarea class="form-field" id="task-text" name="taskText" placeholder="Enter task text"></textarea>
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="add-task__pair">
+              <div class="form-label add-task__date-label">
+                Select
+                <label for="task-date">the date</label>
+                and
+                <label for="task-time">time</label>
+                by which you want to complete the task
+              </div>
+              <div class="d-flex add-task__doublet">
+                <div class="add-task__group">
+                  <input class="form-field form-field--date" name="taskDate" type="date" id="task-date">
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="add-task__group">
+                  <input class="form-field form-field--time" name="taskTime" type="time" id="task-time">
+                  <div class="form-error-msg"></div>
+                </div>
+              </div>
+            </div>
+            <div class="add-task__categories">
+              <label for="category[0]" class="form-label">Select task category</label>
+              <ul class="categories d-flex">
+                <li class="categories__group">
+                  <input class="sr-only category-checkbox" id="category[0]" type="radio" name="taskCategory" value="urgent" checked>
+                  <label class="category-item category-item--urgent" for="category[0]">Urgently</label>
+                </li>
+                <li class="categories__group">
+                  <input class="sr-only category-checkbox" id="category[1]" type="radio" name="taskCategory" value="study">
+                  <label class="category-item category-item--study" for="category[1]">Education</label>
+                </li>
+                <li class="categories__group">
+                  <input class="sr-only category-checkbox" id="category[2]" type="radio" name="taskCategory" value="work">
+                  <label class="category-item category-item--work" for="category[2]">Work</label>
+                </li>
+                <li class="categories__group">
+                  <input class="sr-only category-checkbox" id="category[3]" type="radio" name="taskCategory" value="hobby">
+                  <label class="category-item category-item--hobby" for="category[3]">Hobby</label>
+                </li>
+              </ul>
+              <div class="form-error-msg"></div>
+            </div>
+            <button class="btn btn--icon add-task__btn" type="submit">Add task</button>
+            <div class="form-error">Please fill in all fields</div>
+          </div>
+        </form>
+        <div class="sorting hide">
+          <div class="sorting__group">Sort by status</div>
+          <div class="sorting__item status-sorting d-flex g-10">
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="statusSort" id="statusSort[all]" value="all" checked>
+              <label class="sort-radio__label" for="statusSort[all]">All</label>
+            </div>
+
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="statusSort" id="statusSort[undone]" value="undone">
+              <label class="sort-radio__label" for="statusSort[undone]">Undone</label>
+            </div>
+
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="statusSort" id="statusSort[done]" value="done">
+              <label class="sort-radio__label" for="statusSort[done]">Done</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="statusSort" id="statusSort[archive]" value="archive">
+              <label class="sort-radio__label" for="statusSort[archive]">Archived</label>
+            </div>
+          </div>
+          <div class="sorting__group">Sort by category</div>
+          <div class="sorting__item category-sorting d-flex">
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="categorySort" id="categorySort[all]" value="all">
+              <label class="sort-radio__label" for="categorySort[all]">All</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="categorySort" id="categorySort[urgent]" value="urgent">
+              <label class="sort-radio__label" for="categorySort[urgent]">Urgently</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="categorySort" id="categorySort[study]" value="study">
+              <label class="sort-radio__label" for="categorySort[study]">Education</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="categorySort" id="categorySort[work]" value="work">
+              <label class="sort-radio__label" for="categorySort[work]">Work</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="categorySort" id="categorySort[hobby]" value="hobby">
+              <label class="sort-radio__label" for="categorySort[hobby]">Hobby</label>
+            </div>
+          </div>
+          <div class="sorting__group">Sort by time</div>
+          <div class="sorting__item time-sorting d-flex">
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[all]" value="all">
+              <label class="sort-radio__label" for="timeSort[all]">All</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[new]" value="new">
+              <label class="sort-radio__label" for="timeSort[new]">New</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[expired]" value="expired">
+              <label class="sort-radio__label" for="timeSort[expired]">Expired</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[oneWeek]" value="oneWeek">
+              <label class="sort-radio__label" for="timeSort[oneWeek]">Within one week</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[oneMonth]" value="oneMonth">
+              <label class="sort-radio__label" for="timeSort[oneMonth]">Within one month</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[closest]" value="closest">
+              <label class="sort-radio__label" for="timeSort[closest]">Closest</label>
+            </div>
+            <div class="sort-radio">
+              <input type="radio" class="sort-radio__input" name="timeSort" id="timeSort[distance]" value="distance">
+              <label class="sort-radio__label" for="timeSort[distance]">Not soon</label>
+            </div>
+          </div>
+          <div class="sorting__count"></div>
+        </div>
+        <ul class="task-list">
+        </ul>
+      </div>
+    </main>
+    <div class="notifications">
+    </div>
+  </div>
+</body>
+</html>
